@@ -1,0 +1,32 @@
+<%- include("../partials/header")%>
+<div class="container form-size">
+    <h1 class="text-center">New Product</h1>
+    <form action="/shop/<%= product._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" type="text" name="product[name]" value="<%= product.name %>">
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input class="form-control" id="image" type="file" name="image" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input class="form-control"  type="number" name="product[price]" value="<%= product.price %>">
+        </div>
+        <div class="form-group">
+            <label>Color</label>
+            <br>
+            <label><input type="checkbox" name="product[color]" value="black" /> black</label>
+            <label><input type="checkbox" name="product[color]" value="white" /> white</label>
+            <label><input type="checkbox" name="product[color]" value="yellow" /> yellow</label>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control"  name="product[description]"><%= product.description %></textarea>
+        </div>
+        <button class="btn btn-primary">submit</button>
+    </form>
+</div>
+
+<%- include("../partials/footer")%>

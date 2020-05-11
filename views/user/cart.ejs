@@ -1,0 +1,70 @@
+<%- include("../partials/header")%>
+<div class="container">
+    <div class="row mt-4">
+        <!--Cart col-->
+        <div class="col-md-8 bg-light p-2 border">
+            <h1><%= user.username %>'s Cart</h1>
+        <% user.cart.forEach(function(product){ %>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="<%= product.image %>" class="img-fluid" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                                <div class="card-body">
+                                <h5 class="card-title"><%= product.name %></h5>
+                                <p class="card-text"><%= product.description.substring(0, 80) %></p>
+                                <h4 class="text-danger">$<%= product.price %></h2>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <label class="input-group-text" for="inputGroupSelect01">Colors</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                       <% product.color.forEach(function(color){ %>
+                                        <option value="<%= color %>"><%= color %></option>
+                                        <% }) %>
+                                    </select>
+                                  </div>
+                                  <form action="/shop/<%= product._id %>/like" class="d-inline" method="POST">
+                                    <div class="btn-group">
+                                        <% if (currentUser && product.likes.some(function (like) {
+                                            return like.equals(currentUser._id)
+                                        })) { %>
+                                            <button class="btn btn-danger">
+                                                <i class="far fa-heart"></i> (<%= product.likes.length %>)
+                                            </button>
+                                        <% } else { %>
+                                            <button class="btn btn-outline-danger">
+                                                <i class="far fa-heart"></i> (<%= product.likes.length %>)
+                                            </button>
+                                        <% } %>
+                                      </div>
+                                  </form>
+                                <a href="/cart/<%= currentUser._id %>/<%= product._id %>/delete" class="btn btn-outline-danger">delete</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        <% }) %>
+        <% if(!user.cart.length){ %>
+            <h5>No items added here</h5>
+         <%}%>
+    </div>
+    <!--Checkout col-->
+        <div class="col-md-4 bg-light p-2">
+            <h1>checkout</h1>
+            <div class="card" style="height: 18rem;">
+                <div class="card-body">
+                  <h4 class="card-title">Total price: $<%= totalPrice %></h4>
+                  <% user.cart.forEach(function(product){ %>
+                  <h6 class="card-subtitle mb-2 text-muted">Price subtitle: $<%= product.price %></h6>
+                  <% }) %>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-outline-primary">Paypal</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer")%>

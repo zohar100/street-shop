@@ -1,0 +1,54 @@
+<%- include("../partials/header")%>
+<div class="row mb-0">
+    <div class="col-12">
+        <div class="jumbotron text-center text-white space-bg" style="height: 100%; border-radius: 0px;">
+            <h1 class="display-1 font ">STREET SHOP</h1>
+            <p style="font-size:1.5rem;">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+                <br>This is a simple hero unit, a simple jumbotron-style component for calling extra attention.
+            </p>
+        </div>
+    </div>
+</div>
+        <div class="row m-auto space-bg pb-3">
+            <% product.forEach(function(product){ %>
+                <div class="col-xl-3 col-md-6 col-xs-12 mt-2">
+                    <div class="card m-auto op-bg p-2 border-2" style="width: 18rem;">
+                        <img src="<%= product.image %>" class="card-img-top" alt="...">
+                        <div class="card-body text-white">
+                        <h5 class="card-title"><a class="font mycard-title" href="/shop/<%= product._id %>"><%= product.name %></a></h5>
+                        </div>
+                        <ul class="list-group list-group-flush text-white">
+                        <li class="list-group-item op-bg"><strong>Color:</strong> 
+                            <% product.color.forEach(function(color){{ %>
+                                <%=color%>
+                            <% }}) %>
+                        </li>
+                        <li class="list-group-item op-bg"><strong> Price:</strong> $<%= product.price %></li>
+                        </ul>
+                        <div class="card-body">
+                            <form action="/shop/<%= product._id %>/like" class="d-inline" method="POST">
+                                <div class="btn-group">
+                                    <% if (currentUser && product.likes.some(function (like) {
+                                        return like.equals(currentUser._id)
+                                    })) { %>
+                                        <button class="btn btn-danger">
+                                            <i class="far fa-heart"></i> (<%= product.likes.length %>)
+                                        </button>
+                                    <% } else { %>
+                                        <button class="btn btn-outline-danger">
+                                            <i class="far fa-heart"></i> (<%= product.likes.length %>)
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </form>
+                            <% if(!currentUser){ %>
+                                <a href="/cart/wewe" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+                            <% }else{ %>
+                                <a href="/cart/<%= currentUser._id %>/<%= product._id %>" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+<%- include("../partials/footer")%>

@@ -1,0 +1,68 @@
+<%- include("../partials/header")%>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>DashBoard:</h1><br>
+            <h1 class="d-inline">Shoes</h1>
+            <a class="btn btn-primary btn-lg float-right mb-2" href="/shop/new" role="button">Add Product</a>
+            <table class="table">
+                <tr>
+                    <th>image</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>colors</th>
+                    <th>description</th>
+                    <th>options</th>
+                </tr>
+                <% product.forEach(function(product){ %>
+                <tr >
+                    <td><img src="<%= product.image %>" style="width: 100px;" alt=""></td>
+                    <td><a href="/shop/<%= product._id %>"><%= product.name %></a></td>
+                    <td>$40</td>
+                    <td><%= product.color %></td>
+                    <td><%= product.description.substring(0, 150) %></td>
+                    <td>
+                        <% if(currentUser && currentUser.isAdmin){ %>
+                            <a href="/shop/<%= product._id%>/edit" class="mb-3 btn btn-warning">Edit</a>
+                            <form action="/shop/<%= product._id%>?_method=DELETE" method="POST">
+                              <button class="btn btn-danger">Delete</button>
+                            </form>
+                        <% } %>
+                    </td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+        <br>
+        <div class="col-12">
+            <h1>Users</h1>
+            <table class="table">
+                <tr>
+                    <th>image</th>
+                    <th>name</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Adress</th>
+                    <th>options</th>
+                </tr>
+                <% user.forEach(function(user){ %>
+                <tr >
+                    <td>Image</td>
+                    <td><a href="/users/<%= user._id %>"><%= user.username %></a></td>
+                    <td>Email1212@gmail.com</td>
+                    <td><%= user.isAdmin %></td>
+                    <td>Adress</td>
+                    <td>
+                        <% if(currentUser && currentUser.isAdmin){ %>
+                            <form action="/delete/<%= user._id %>?_method=DELETE" method="POST">
+                              <button class="btn btn-danger">Delete</button>
+                            </form>
+                        <% } %>
+                    </td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer")%>

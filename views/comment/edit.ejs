@@ -1,0 +1,15 @@
+<%- include("../partials/header")%>
+<div class="container form-size">
+    <h1 class="text-center">Edit Your Comment</h1>
+    <form action="/shop/<%= product_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+        <div class="form-group">
+            <label>Text:</label>
+            <textarea class="form-control" name="comment[text]">
+                <%= comment.text %>
+            </textarea>
+        </div>
+        <button class="btn btn-primary">submit</button>
+    </form>
+</div>
+
+<%- include("../partials/footer")%>
