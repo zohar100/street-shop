@@ -17,10 +17,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
+                    <a class="nav-link" href="/">Home</span></a>
+                    </li>
+                    <li class="nav-item <%= typeof page !== 'undefined' && page === 'shop' ? 'active' : '' %>">
                     <a class="nav-link" href="/">Shop</a>
                     </li>
                     <li class="nav-item">
@@ -30,13 +30,13 @@
                 <!--Right side-->
                 <ul class="navbar-nav ml-auto">
                     <% if(!currentUser){ %>
-                    <li class="nav-item active">
+                    <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
                     <a class="nav-link" href="/login">LogIn <i class="fas fa-sign-in-alt"></i></a>
                     </li>
                     <% } else{ %>
                     <li class="nav-item">
                         <div class="dropdown">
-                            <button class="bg-dark nav-link dropdown-toggle border-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="bg-dark nav-link dropdown-toggle border-0 <%= typeof page !== 'undefined' && page === 'profile' ? 'active' : '' %>" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <%= currentUser.username %> <i class="fas fa-user"></i>
                             </button>
                             <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">

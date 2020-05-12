@@ -10,7 +10,7 @@ router.get("/users/:id", function(req, res){
             console.log(err);
             res.redirect("back");
         }else{
-            res.render("user/show", {user: foundUser});
+            res.render("user/show", {user: foundUser, page: "profile"});
         }
     })
 });

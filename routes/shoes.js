@@ -31,7 +31,7 @@ router.get("/shop", function(req, res){
             console.log(err);
             res.redirect("back");
         }else{
-            res.render("shop/index", {product: foundshoes});   
+            res.render("shop/index", {product: foundshoes, page: "shop"});   
         }
     });
 });
@@ -75,7 +75,7 @@ router.get("/shop/:id", function(req, res){
             console.log(err);
             res.redirect("back");
         }else{
-            res.render("shop/show", {product: foundShoe});
+            res.render("shop/show", {product: foundShoe, page: "shop"});
         }
     });
 });
