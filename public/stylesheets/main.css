@@ -12,6 +12,7 @@ body{
 
 .font{
     font-family: 'Bangers', cursive;
+    text-shadow: 4px 4px rgba(0,0,0,0.650);
     color: #ace632;
 }
 

@@ -21,38 +21,30 @@ router.get("/cart/:id", middleAware.isLoggedIn, function(req, res){
     });
 });
 
-//Add to cart
-router.get("/cart/:id/:productid", middleAware.isLoggedIn, function(req, res){
+//Add and delete from cart
+router.get("/cart/:id/:shoeid", middleAware.isLoggedIn, function(req, res){
     User.findById(req.params.id, function(err, foundUser){
         if(err){
             console.log(err);
             res.redirect("back");
         }else{
-            Shoe.findById(req.params.productid, function(err, foundShoe){
-                if(err){
-                    console.log(err);
-                    res.redirect("back");
+            Shoe.findById(req.params.shoeid, function(err, foundShoe){
+                ShoeIsInCart = foundUser.cart.some(function(shoe){
+                    return shoe.equals(foundShoe._id);
+                });
+                if(ShoeIsInCart){
+                    foundUser.cart.pull(foundShoe);
                 }else{
                     foundUser.cart.push(foundShoe);
-                    foundUser.save();
-                    res.redirect("back");
                 }
+                foundUser.save(function(err){
+                    if(err){
+                        console.log(err);
+                        res.redirect("back");
+                    }
+                    res.redirect("back");
+                });
             });
-        }
-    });
-});
-
-//Delte from cart
-router.get("/cart/:id/:productid/delete", function(req, res){
-    User.findById(req.params.id , function(err, foundUser){
-        if(err){
-            console.log(err);
-            res.redirect("back");
-        }else{
-            var found = foundUser.cart.indexOf(req.params.productid);
-            foundUser.cart.splice(found, 1);
-            foundUser.save();
-            res.redirect("/cart/"+ foundUser._id);
         }
     });
 });
