@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-        <div class="row m-auto space-bg pb-3">
+        <div class="row m-auto space-bg pb-3" style="width: 100%;">
             <% product.forEach(function(product){ %>
                 <div class="col-xl-3 col-md-6 col-xs-12 mt-2">
                     <div class="card m-auto op-bg p-2 border-2" style="width: 18rem;">
@@ -35,8 +35,8 @@
                                             <i class="far fa-heart"></i> (<%= product.likes.length %>)
                                         </button>
                                     <% } else { %>
-                                        <button class="btn btn-outline-danger">
-                                            <i class="far fa-heart"></i> (<%= product.likes.length %>)
+                                        <button class="btn btn-danger">
+                                            <i class="fas fa-heart-broken"></i> (<%= product.likes.length %>)
                                         </button>
                                     <% } %>
                                 </div>
