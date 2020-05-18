@@ -21,7 +21,7 @@ var cloudinary = require('cloudinary');
 cloudinary.config({ 
   cloud_name: 'zohardevspace', 
   api_key: '561569338755957', 
-  api_secret: '7z4pCS6bt5DFpdIFe57UaOJDBoY'
+  api_secret: process.env.CLOUDINARY_SECRET_API
 });
 
 //TYPE
