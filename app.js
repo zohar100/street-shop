@@ -6,7 +6,6 @@ var methodOverride = require("method-override"),
  mongoose          = require("mongoose"),
  passport          = require("passport"),
  express           = require("express"),
- paypal            = require("paypal-rest-sdk"),
  flash             = require("connect-flash"),
  app               = express();
 //SCHEMA SETUP

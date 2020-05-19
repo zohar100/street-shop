@@ -54,16 +54,14 @@
     <!--Checkout col-->
         <div class="col-md-4 bg-light p-2">
             <h1>checkout</h1>
-            <div class="card" style="height: 18rem;">
+            <div class="card" style="height: 20rem;">
                 <div class="card-body">
-                  <h4 class="card-title">Total price: $<%= totalPrice %></h4>
+                  <h4 class="card-title">Total price: $<span id="totalPrice"><%= totalPrice %></span></h4>
                   <% user.cart.forEach(function(product){ %>
                   <h6 class="card-subtitle mb-2 text-muted">Price subtitle: $<%= product.price %></h6>
                   <% }) %>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <form action="/cart/<%= user._id %>/pay?_method=POST" method="POST">
-                    <button class="btn btn-outline-primary">Paypal</button>
-                  </form>  
+                  <div id="paypal-button-container"></div>
                 </div>
               </div>
         </div>
