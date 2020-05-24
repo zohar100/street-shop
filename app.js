@@ -16,7 +16,7 @@ var Comment = require("./models/comment");
 var commentRoutes  = require("./routes/comments"),
     indexRoutes    = require("./routes/index"),
     adminRoutes    = require("./routes/admins"),
-    shoeRoutes     = require("./routes/shoes"),
+    shopRoutes     = require("./routes/shop"),
     userRoutes     = require("./routes/users"),
     cartRoutes     = require("./routes/cart");
 
@@ -52,7 +52,7 @@ app.use(function(req, res, next){
 
 //ROUTES CONFIGURATION
 app.use(indexRoutes);
-app.use(shoeRoutes);
+app.use(shopRoutes);
 app.use(cartRoutes);
 app.use(adminRoutes);
 app.use(userRoutes);

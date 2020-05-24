@@ -3,9 +3,15 @@ var passport = require("passport"),
     router  = express.Router();
 //SCHEMA SETUP
 var User = require("../models/user");
+var Shoe = require("../models/shoe");
 
 router.get("/", function(req, res){
-    res.redirect("/shop");
+    Shoe.find({}, function(err, foundShoes){
+        if(err){
+            console.log(err);
+        }
+        res.render("landing",  {page: "landing", product: foundShoes});
+    })
 });
 
 //NEW

@@ -10,10 +10,15 @@ body{
     flex-direction: column;
 }
 
-.font{
+.header-font{
     font-family: 'Bangers', cursive;
     text-shadow: 4px 4px rgba(0,0,0,0.650);
     color: #ace632;
+}
+.p-font{
+    letter-spacing: 2px;
+    font-weight: 600;
+    line-height: 2em;
 }
 
 .mycard-title, .mycard-title:hover{
@@ -21,7 +26,7 @@ body{
     color:  #ace632;
 }
 
-.space-bg{
+.shop-bg{
     background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
