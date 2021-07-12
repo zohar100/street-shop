@@ -1,4 +1,3 @@
-var Shoe = require("../models/shoe");
 var Comment = require("../models/comment")
 
 var middleware = {};

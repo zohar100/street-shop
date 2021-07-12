@@ -6,28 +6,44 @@ var methodOverride = require("method-override"),
  mongoose          = require("mongoose"),
  passport          = require("passport"),
  express           = require("express"),
+ dotenv            = require("dotenv"),
+ seeds             = require("./seeds"),
  flash             = require("connect-flash"),
  app               = express();
-//SCHEMA SETUP
-var User = require("./models/user");
-var Shoe = require("./models/shoe");
-var Comment = require("./models/comment");
-//ROUTES SETUP
-var commentRoutes  = require("./routes/comments"),
-    indexRoutes    = require("./routes/index"),
-    adminRoutes    = require("./routes/admins"),
-    shopRoutes     = require("./routes/shop"),
-    userRoutes     = require("./routes/users"),
-    cartRoutes     = require("./routes/cart");
+ //SCHEMA SETUP
+ var User = require("./models/user");
+ //ROUTES SETUP
+ var commentRoutes  = require("./routes/comments"),
+ indexRoutes    = require("./routes/index"),
+ adminRoutes    = require("./routes/admins"),
+ shopRoutes     = require("./routes/shop"),
+ userRoutes     = require("./routes/users"),
+ cartRoutes     = require("./routes/cart");
+ 
+ //APP HELPERS
+ dotenv.config();
+ app.use(bodyParser.urlencoded({extended: true}));
+ app.use(express.static(__dirname + "/public"));
+ app.use(methodOverride("_method"));
+ app.set("view engine", "ejs");
+ app.use(flash());
+ app.use(cookieParser())
+ 
+ 
+ //DB CONFIGURATION
+ var uri = process.env.MONGODB_URI;
+ mongoose.connect(uri, {
+   useNewUrlParser: true,
+   useCreateIndex: true,
+   useUnifiedTopology: true,
+  }); 
+  var connection = mongoose.connection;
+  connection.once("open", function(){
+    console.log("MongoDB database connect");
+  });
 
- //PACKAGES CONFIGURATION
-mongoose.connect('mongodb://localhost:27017/maskon');
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + "/public"));
-app.use(methodOverride("_method"));
-app.set("view engine", "ejs");
-app.use(flash());
-app.use(cookieParser())
+  seeds();
+
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({

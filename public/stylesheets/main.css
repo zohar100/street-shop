@@ -1,52 +1,53 @@
-html{
-    height: 100%;
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    font-family: 'Montserrat', sans-serif;
-    /* background-color: #e6e6e680; */
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #e6e6e680;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.header-font{
-    font-family: 'Bangers', cursive;
-    text-shadow: 4px 4px rgba(0,0,0,0.650);
-    color: #ace632;
+.header-font {
+  font-family: "Bangers", cursive;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.65);
+  color: #ace632;
 }
-.p-font{
-    letter-spacing: 0.20rem;
-    font-weight: 400;
-    line-height: 2em;
-}
-
-.mycard-title, .mycard-title:hover{
-    text-decoration: none;
-    color:  #ace632;
+.p-font {
+  letter-spacing: 0.2rem;
+  font-weight: 400;
+  line-height: 2em;
 }
 
-.shop-bg{
-    background-image: url('../images/bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+.mycard-title,
+.mycard-title:hover {
+  text-decoration: none;
+  color: #ace632;
 }
 
-.op-bg{
-   background: rgba(0,0,0,0.450);
+.shop-bg {
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.flash{
-    z-index: 1;
-    text-align: center;
+/* .home-images-div img {
+  max-height: 300px;
+  max-width: 300px;
+} */
+
+.op-bg {
+  background: rgba(0, 0, 0, 0.45);
 }
 
-.slideImages{
-    width: 400px;
-    position: absolute;
-    margin-left: 150px;
-    margin-top: -100px;
-    transition: 1.2s;
+.flash {
+  z-index: 1;
+  text-align: center;
 }
