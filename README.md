@@ -2,4 +2,4 @@
 
 > eCommerce platform built with Nodejs & MongoDb.
 
-![](readme-images/home-page.png)
+![](https://github.com/zohar100/street-shop/blob/uploads/home-page.png?raw=true)
