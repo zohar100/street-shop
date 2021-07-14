@@ -47,7 +47,7 @@ var methodOverride = require("method-override"),
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "This is secret thing",
+    secret: process.env.EXPRESS_SECRET,
     resave: false, 
     saveUninitialized: false
 }));
