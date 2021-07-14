@@ -1,4 +1,4 @@
-## Street Shop
+# Street Shop
 
 > eCommerce platform built with Nodejs & MongoDb.
 
@@ -27,6 +27,7 @@
 * Passport
 * multer
 
+
 ## Features
 
 - Full featured shopping cart
@@ -40,6 +41,7 @@
 - Checkout process (payment method)
 - PayPal / credit card integration
 - Database seeder (products)
+
 
 ## Usage
 
