@@ -1,7 +1,8 @@
 # Street Shop
 
-> eCommerce platform built with Nodejs & MongoDb.
+> eCommerce platform built with Nodejs & EJS.
 
+### My first full-stack project was built after the first course I took, built with ES5.
 
 <img src="uploads/home-page.png"/>
 <img src="uploads/shop-page.png"/>
