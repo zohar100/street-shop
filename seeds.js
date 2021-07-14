@@ -51,9 +51,9 @@ function seedDB(){
     //Remove all Shoes
     Shoe.deleteMany({}, function(){
         console.log('Shoe removed successfuly')
-    });
-    Comment.deleteMany({}, function(){
-        console.log('Comment removed successfuly')
+        Comment.deleteMany({}, function(){
+            console.log('Comment removed successfuly')
+        })
     });
     data.forEach(function(shoe) {
         Shoe.create(shoe, function(){

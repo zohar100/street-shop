@@ -1,6 +1,5 @@
 function init(){
     paypalPayment();
-    imageSlide();
 }
 
 function paypalPayment(){
@@ -33,42 +32,5 @@ function paypalPayment(){
     }).render('#paypal-button-container');
 }
 
-function imageSlide(){
-    var images = document.querySelectorAll('.slideImages');
-    var nextBtn = document.querySelector('#next-button');
-    var prevBtn = document.querySelector('#previous-button');
-    var count = 0;
-    var imagesLen = images.length -2;
-
-    nextBtn.addEventListener('click', function(){
-        if(count > imagesLen){
-            count = 0; 
-        }else{
-            count++;
-        }
-        for(var i=0;i < images.length;i++){
-            if(images[i] != images[count]){
-                images[i].style.opacity = '0';
-            }else{
-                images[count].style.opacity = '1';
-            }
-        }
-    });
-
-    prevBtn.addEventListener('click', function(){
-        if(count < imagesLen){
-            count = imagesLen; 
-        }else{
-            count--;
-        }
-        for(var i=0;i < images.length;i++){
-            if(images[i] != images[count]){
-                images[i].style.opacity = '0';
-            }else{
-                images[count].style.opacity = '1';
-            }
-        }
-    });
-}
 
 init();
