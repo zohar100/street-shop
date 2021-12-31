@@ -2,7 +2,7 @@
 
 > eCommerce platform built with Nodejs & EJS.
 
-> My first full-stack project was built after the first online course I took. 
+> My first full-stack project was built after the first online course I took.
 > Based on ECMAScript 5.
 
 <img src="uploads/home-page.png"/>
@@ -18,17 +18,16 @@
 
 ### Front-end:
 
-* EJS
-* JS
-* Bootstrap
+- EJS
+- JS
+- Bootstrap
 
 ### Backend:
 
-* Node/Express
-* MongoDB/Mongoose
-* Passport
-* multer
-
+- Node/Express
+- MongoDB/Mongoose
+- Passport
+- multer
 
 ## Features
 
@@ -43,7 +42,6 @@
 - Checkout process (payment method)
 - PayPal / credit card integration
 - Database seeder (products)
-
 
 ## Usage
 
