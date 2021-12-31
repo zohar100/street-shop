@@ -57,7 +57,7 @@ function seedDB(){
     });
     data.forEach(function(shoe) {
         Shoe.create(shoe, function(){
-            console.log('show added');
+            console.log('shoe added');
         });
     });
 

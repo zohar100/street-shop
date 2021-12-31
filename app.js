@@ -33,14 +33,14 @@ var methodOverride = require("method-override"),
  //DB CONFIGURATION
  var uri = process.env.MONGODB_URI;
  mongoose.connect(uri, {
-   useNewUrlParser: true,
-   useCreateIndex: true,
-   useUnifiedTopology: true,
-  }); 
-  var connection = mongoose.connection;
-  connection.once("open", function(){
-    console.log("MongoDB database connect");
-  });
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+}); 
+var connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB database connect");
+});
 
   seeds();
 
